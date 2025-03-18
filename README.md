@@ -1,52 +1,68 @@
+Image Captioning for Vietnamese
+🚀 Multilingual Captioning using mBART for Vietnamese Image Captioning
 
-\title{Image Captioning for Vietnamese}
-\author{}
-\date{}
-\maketitle
+📌 Project Description
+This project leverages deep learning to generate captions for images in Vietnamese using the mBART architecture, a transformer-based model fine-tuned for multilingual tasks. The model generates accurate and meaningful captions for Vietnamese images by training on a large dataset.
 
-This repository provides the code and models for image captioning in Vietnamese using a transformer-based architecture. It leverages a pre-trained mBART model for generating captions from images.
-
-\section*{Installation}
-
-To set up the environment, you need to create and activate a conda environment using the provided \texttt{vacnic.yml} file:
-
-\begin{verbatim}
-conda env create -n icvn --file vacnic.yml
-conda activate icvn
-\end{verbatim}
-
-\section*{Data}
-
+🗂 Dataset
 The dataset information will be updated soon. Please stay tuned for the data details and how to prepare it.
 
-\section*{Training}
+📊 Model Performance
+The model uses the mBART architecture for multilingual caption generation. We recommend using an NVIDIA A100 GPU for optimal performance.
 
-For training, we recommend using an NVIDIA A100 GPU for optimal performance. The training process uses the mBART architecture, which is particularly well-suited for multilingual tasks.
+🎯 Training Requirements
+DATADIR: The path where you store the datasets.
+OUTPUTDIR: The path where you store the output models.
+⚙️ Installation & Usage
+1️⃣ System Requirements
+Python 3.8+
+NVIDIA GPU (recommended)
+Conda
+2️⃣ Install Dependencies
+Run the following command to set up the conda environment:
 
-\subsection*{Key Directories}
+sh
+Copy
+Edit
+conda env create -n icvn --file vacnic.yml
+conda activate icvn
+3️⃣ Train the Model
+After setting up the environment, you can start training the model using the mBART architecture:
 
-\begin{itemize}
-  \item \textbf{DATADIR}: The path where you store the datasets.
-  \item \textbf{OUTPUTDIR}: The path where you store the output models.
-\end{itemize}
+sh
+Copy
+Edit
+python train.py --datadir /path/to/dataset --outputdir /path/to/output
+📌 Technologies Used
+Deep Learning Frameworks: PyTorch, Transformers
+Pre-trained Models:
+mBART (for multilingual caption generation)
+Training Optimization: Adam Optimizer, PyTorch DataLoader
+Evaluation Metrics: BLEU, METEOR, ROUGE
+🚀 Future Improvements
+🛠 Improve model accuracy by fine-tuning hyperparameters and adding more training data.
+🛠 Expand the dataset for better generalization.
+🤝 Contributions
+We welcome contributions! To contribute:
 
-Make sure to properly set these variables in the training script before running.
-
-\section*{Evaluation}
-
+Fork this repository
+Create a new branch: git checkout -b feature-new
+Commit your changes: git commit -m "Add new feature"
+Push to GitHub: git push origin feature-new
+Create a Pull Request
+📌 Evaluation
 By the end of our training code, we automatically generate a JSON file containing generated captions and ground truth captions. The caption generation scores will be printed out and stored in the WandB log.
 
 For evaluating entities, please run:
 
-\begin{verbatim}
+sh
+Copy
+Edit
 python evaluate_entity.py
-\end{verbatim}
-
 Where:
-\begin{itemize}
-  \item \textbf{DATADIR} is the root directory for the datasets.
-  \item \textbf{OUTPUTDIR} is the output directory for your JSON file.
-\end{itemize}
 
-Note that the package version needs to be changed. Please refer to the repo of \href{https://github.com/alasdairtran/transform-and-tell}{Transform-and-Tell} (also where you get the raw datasets from), and use the versions indicated in their repo.
+DATADIR is the root directory for the datasets.
+OUTPUTDIR is the output directory for your JSON file.
+Note that the package version needs to be changed. Please refer to the repo of Transform-and-Tell (also where you get the raw datasets from), and use the versions indicated in their repo.
+
 
